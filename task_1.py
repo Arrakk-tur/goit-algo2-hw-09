@@ -14,14 +14,14 @@ def hill_climbing(func, bounds, iterations=1000, epsilon=1e-6):
     current_value = func(current)
 
     for _ in range(iterations):
-        # Невеликий випадковий крок
+        # Маленький випадковий крок
         candidate = [
             max(min(current[i] + random.uniform(-0.1, 0.1), bounds[i][1]), bounds[i][0])
             for i in range(len(bounds))
         ]
         candidate_value = func(candidate)
 
-        # Приймаємо кращу точку
+        # Краща точка
         if candidate_value < current_value:
             if abs(current_value - candidate_value) < epsilon:
                 break
